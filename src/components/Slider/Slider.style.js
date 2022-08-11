@@ -8,6 +8,7 @@ export const Container = styled.div`
   height: 100vh;
   background-color: ${Colors.white};
   position: relative;
+  overflow: hidden;
 `;
 
 export const Arrow = styled.div`
@@ -26,11 +27,14 @@ export const Arrow = styled.div`
   margin: auto;
   cursor: pointer;
   opacity: 0.8;
+  z-index: 2;
 `;
 
 export const Wrapper = styled.div`
   display: flex;
   height: 100%;
+  transition: all 1.5s ease;
+  transform: translateX(${(props) => props.slideIndex * -100}vw);
 `;
 
 export const Slide = styled.div`
@@ -38,6 +42,7 @@ export const Slide = styled.div`
   align-items: center;
   width: 100vw;
   height: 100vh;
+  background-color: ${(props) => props.bg};
 `;
 
 export const ImgContainer = styled.div`

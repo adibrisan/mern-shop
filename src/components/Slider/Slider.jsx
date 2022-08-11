@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+
+import { sliderItems } from "../../data/data";
 
 import {
   Arrow,
@@ -15,38 +17,36 @@ import {
 import { HiArrowLeft, HiArrowRight } from "react-icons/hi";
 
 const Slider = () => {
+  const [slideIndex, setSlideIndex] = useState(0);
+
+  const handleClick = (direction) => {
+    if (direction === "left") {
+      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 1);
+    } else {
+      setSlideIndex(slideIndex < 1 ? slideIndex + 1 : 0);
+    }
+  };
+
   return (
     <Container>
-      <Arrow direction="left">
+      <Arrow direction="left" onClick={() => handleClick("left")}>
         <HiArrowLeft />
       </Arrow>
-      <Wrapper>
-        <Slide>
-          <ImgContainer>
-            <Image src="https://img.freepik.com/free-photo/beautiful-smiling-young-blonde-woman-pointing-sunglasses-holding-shopping-bags-credit-card-pink-wall_496169-1506.jpg?w=2000&t=st=1660139361~exp=1660139961~hmac=9df9bf3d78e7e1858078394649f465f4811da407235d0608959b0e0f4e360684" />
-          </ImgContainer>
-          <InfoContainer>
-            <Title>Summer Sales</Title>
-            <Description>
-              Don't COMPROMISE ON STYLE ! GET FLAT 30% OFF our NEW ARRIVALS.
-            </Description>
-            <Button>SHOW NOW</Button>
-          </InfoContainer>
-        </Slide>
-        <Slide>
-          <ImgContainer>
-            <Image src="https://img.freepik.com/free-photo/beautiful-smiling-young-blonde-woman-pointing-sunglasses-holding-shopping-bags-credit-card-pink-wall_496169-1506.jpg?w=2000&t=st=1660139361~exp=1660139961~hmac=9df9bf3d78e7e1858078394649f465f4811da407235d0608959b0e0f4e360684" />
-          </ImgContainer>
-          <InfoContainer>
-            <Title>Summer Sales</Title>
-            <Description>
-              Don't COMPROMISE ON STYLE ! GET FLAT 30% OFF our NEW ARRIVALS.
-            </Description>
-            <Button>SHOW NOW</Button>
-          </InfoContainer>
-        </Slide>
+      <Wrapper slideIndex={slideIndex}>
+        {sliderItems.map((item, index) => (
+          <Slide key={index} bg={item.bg}>
+            <ImgContainer>
+              <Image src={item.img} />
+            </ImgContainer>
+            <InfoContainer>
+              <Title>{item.title}</Title>
+              <Description>{item.description}</Description>
+              <Button>SHOW NOW</Button>
+            </InfoContainer>
+          </Slide>
+        ))}
       </Wrapper>
-      <Arrow direction="right">
+      <Arrow direction="right" onClick={() => handleClick("right")}>
         <HiArrowRight />
       </Arrow>
     </Container>
