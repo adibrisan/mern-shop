@@ -9,8 +9,8 @@ import { categories } from "../../data/data";
 const Categories = () => {
   return (
     <Container>
-      {categories.map((item, index) => (
-        <CaegoryItem key={index} item={item} />
+      {categories.map((item) => (
+        <CaegoryItem key={item.id} item={item} />
       ))}
     </Container>
   );

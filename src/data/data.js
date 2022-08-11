@@ -44,7 +44,7 @@ export const popularProducts = [
   },
   {
     id: 2,
-    img: "https://cdn.shopify.com/s/files/1/0101/4832/products/Angela_Natural_Tee.png?v=1606780388",
+    img: "https://www.fansbrands.ro/img/19009/02377901XFB/510x510,r/sapca-de-flatbrim-red-bull-sergio-perez-2022-rosu.webp?time=1655273646",
   },
   {
     id: 3,
@@ -64,7 +64,7 @@ export const popularProducts = [
   },
   {
     id: 7,
-    img: "https://www.vintageindustries.nl/download_front/qympzk1762/2217_Arrow_Jacket_Forest.png",
+    img: "https://s13emagst.akamaized.net/products/44460/44459616/images/res_f4b54073e2928c76c2dd90ed6339b377.jpg",
   },
   {
     id: 8,
