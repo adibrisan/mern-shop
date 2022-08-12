@@ -1,11 +1,17 @@
 export const Colors = {
   black: "#000000",
   catskillWhite: "#E9F5F5",
+  chambray: "#3B5999",
+  cheriseRed: "#E4405F",
   ebb: "#ECE7E4",
   candyCorn: "#FBF04F",
   coral: "#FF7F50",
+  fantasy: "#FCF5F5",
   gray: "gray",
   linen: "#FCF1ED",
+  monza: "#E60023",
+  pictonBlue: "#55ACEE",
   polar: "#F5FAFD",
+  teal: "#008080",
   white: "white",
 };

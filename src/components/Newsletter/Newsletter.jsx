@@ -10,6 +10,7 @@ import {
 } from "./Newsletter.style";
 
 import { AiOutlineSend } from "react-icons/ai";
+import { Colors } from "../../environment/theme/Colors";
 
 const Newsletter = () => {
   return (
@@ -19,7 +20,7 @@ const Newsletter = () => {
       <InputContainer>
         <Input placeholder="Your email" />
         <Button>
-          <AiOutlineSend />
+          <AiOutlineSend size={25} color={Colors.white} />
         </Button>
       </InputContainer>
     </Container>
