@@ -2,7 +2,7 @@ import React from "react";
 
 import { Container, Image, Info, Title, Button } from "./CategoryItem.style";
 
-const CaegoryItem = ({ item }) => {
+const CategoryItem = ({ item }) => {
   return (
     <Container>
       <Image src={item.img} />
@@ -14,4 +14,4 @@ const CaegoryItem = ({ item }) => {
   );
 };
 
-export default CaegoryItem;
+export default CategoryItem;

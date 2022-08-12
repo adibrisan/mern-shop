@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import { MediaQueries } from "../../environment/theme/sizes";
 import { Colors } from "../../environment/theme/Colors";
 
 export const Container = styled.div`
@@ -43,15 +44,44 @@ export const Slide = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: ${(props) => props.bg};
+
+  @media ${MediaQueries.phone} {
+    flex-direction: column;
+  }
 `;
 
 export const ImgContainer = styled.div`
   flex: 1;
   height: 100%;
+
+  @media ${MediaQueries.phone} {
+    flex: 0;
+    max-height: 50%;
+  }
 `;
 
 export const Image = styled.img`
   height: 80%;
+
+  @media ${MediaQueries.touchSmall} {
+    max-width: 25rem;
+    max-height: 25rem;
+  }
+
+  @media ${MediaQueries.touch} {
+    max-width: 30rem;
+    max-height: 30rem;
+  }
+
+  @media ${MediaQueries.phone}, ${MediaQueries.phoneSmall} {
+    max-width: 30rem;
+    max-height: 30rem;
+  }
+
+  @media ${MediaQueries.laptop} {
+    max-width: 40rem;
+    max-height: 40rem;
+  }
 `;
 
 export const InfoContainer = styled.div`

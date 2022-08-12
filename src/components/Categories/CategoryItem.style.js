@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import { MediaQueries } from "../../environment/theme/sizes";
 import { Colors } from "../../environment/theme/Colors";
 
 export const Container = styled.div`
@@ -25,8 +26,15 @@ export const Info = styled.div`
   height: 100%;
 `;
 export const Title = styled.h1`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
   color: ${Colors.white};
-  margin-bottom: 20px;
+
+  @media ${MediaQueries.phone} {
+    font-size: 15px;
+  }
 `;
 export const Button = styled.button`
   border: none;
@@ -35,4 +43,9 @@ export const Button = styled.button`
   color: ${Colors.gray};
   cursor: pointer;
   font-weight: 600;
+
+  @media ${MediaQueries.phone} {
+    position: absolute;
+    top: 70%;
+  }
 `;

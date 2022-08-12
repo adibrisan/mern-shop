@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { MediaQueries } from "../../environment/theme/sizes";
+
 export const Container = styled.div`
   height: 60px;
 `;
@@ -15,6 +17,11 @@ export const Left = styled.div`
   display: flex;
   flex: 1;
   align-items: center;
+
+  @media ${MediaQueries.phone} {
+    max-width: 2rem;
+    max-height: 2rem;
+  }
 `;
 
 export const Language = styled.span`
@@ -28,6 +35,11 @@ export const SearchContainer = styled.div`
   align-items: center;
   margin-left: 25px;
   padding: 5px;
+
+  @media ${MediaQueries.phone} {
+    margin-left: 2px;
+    max-height: 2rem;
+  }
 `;
 
 export const Input = styled.input`
@@ -37,6 +49,10 @@ export const Input = styled.input`
 export const Center = styled.div`
   flex: 1;
   text-align: center;
+
+  @media ${MediaQueries.phone} {
+    display: none;
+  }
 `;
 
 export const Logo = styled.h1`
@@ -48,6 +64,11 @@ export const Right = styled.div`
   flex: 1;
   align-items: center;
   justify-content: flex-end;
+
+  @media ${MediaQueries.phone} {
+    max-width: 2rem;
+    max-height: 2rem;
+  }
 `;
 
 export const MenuItem = styled.div`

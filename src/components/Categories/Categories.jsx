@@ -1,6 +1,6 @@
 import React from "react";
 
-import CaegoryItem from "./CaegoryItem";
+import CategoryItem from "./CategoryItem";
 
 import { Container } from "./Categories.style";
 
@@ -10,7 +10,7 @@ const Categories = () => {
   return (
     <Container>
       {categories.map((item) => (
-        <CaegoryItem key={item.id} item={item} />
+        <CategoryItem key={item.id} item={item} />
       ))}
     </Container>
   );
