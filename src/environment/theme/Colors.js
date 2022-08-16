@@ -8,6 +8,7 @@ export const Colors = {
   coral: "#FF7F50",
   fantasy: "#FCF5F5",
   gray: "gray",
+  hintOfRed: "#f8f4f4",
   linen: "#FCF1ED",
   monza: "#E60023",
   pictonBlue: "#55ACEE",

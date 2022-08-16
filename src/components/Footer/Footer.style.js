@@ -55,4 +55,12 @@ export const Right = styled.div`
   padding: 20px;
 `;
 
-export const ContactItem = styled.div``;
+export const ContactItem = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+`;
+
+export const Payment = styled.img`
+  width: 50%;
+`;

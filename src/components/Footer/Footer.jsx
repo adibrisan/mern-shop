@@ -21,6 +21,7 @@ import {
   List,
   ListItem,
   ContactItem,
+  Payment,
 } from "./Footer.style";
 import { Colors } from "../../environment/theme/Colors";
 
@@ -64,17 +65,18 @@ const Footer = () => {
       <Right>
         <Title>Contact</Title>
         <ContactItem>
-          <MdOutlineRoom />
+          <MdOutlineRoom style={{ marginRight: "10px" }} />
           Col. olt 5
         </ContactItem>
         <ContactItem>
-          <AiOutlinePhone />
+          <AiOutlinePhone style={{ marginRight: "10px" }} />
           +40 770 260 451
         </ContactItem>
         <ContactItem>
-          <FaAddressBook />
+          <FaAddressBook style={{ marginRight: "10px" }} />
           adi.brisan@yahoo.com
         </ContactItem>
+        <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
       </Right>
     </Container>
   );
