@@ -117,9 +117,10 @@ export const Amount = styled.span`
 export const Button = styled.button`
   padding: 15px;
   border: 2px solid teal;
-  background-color: white;
+  background-color: ${Colors.white};
   cursor: pointer;
   font-weight: 500;
+
   &:hover {
     background-color: ${Colors.hintOfRed};
   }
