@@ -13,6 +13,7 @@ export const Colors = {
   monza: "#E60023",
   pictonBlue: "#55ACEE",
   polar: "#F5FAFD",
+  red: "#FF0000",
   teal: "#008080",
   white: "white",
 };
