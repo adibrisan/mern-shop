@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { MediaQueries } from "../../environment/theme/sizes";
+
 export const Container = styled.div``;
 export const Title = styled.h1``;
 export const FilterContainer = styled.div`
@@ -20,4 +22,8 @@ export const FilterText = styled.span`
 export const Select = styled.select`
   padding: 10px;
   margin-right: 20px;
+
+  @media ${MediaQueries.phone} {
+    margin-right: 5px;
+  }
 `;

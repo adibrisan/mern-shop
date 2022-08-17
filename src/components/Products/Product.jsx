@@ -8,7 +8,6 @@ import {
 import { Container, Circle, Image, Info, Icon } from "./Product.style";
 
 const Product = ({ item }) => {
-  console.log(item);
   return (
     <Container>
       <Circle />

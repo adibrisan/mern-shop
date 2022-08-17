@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import { MediaQueries } from "../../../environment/theme/sizes";
 import { Colors } from "../../../environment/theme/Colors";
 
 export const Container = styled.div`
@@ -30,6 +31,10 @@ export const Title = styled.h1`
 export const Form = styled.form`
   display: flex;
   flex-wrap: wrap;
+
+  @media ${MediaQueries.phone} {
+    justify-content: center;
+  }
 `;
 
 export const Agreement = styled.span`

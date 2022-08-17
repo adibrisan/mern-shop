@@ -37,13 +37,18 @@ export const SearchContainer = styled.div`
   padding: 5px;
 
   @media ${MediaQueries.phone} {
-    margin-left: 2px;
+    margin-left: 1rem;
+    max-width: 8rem;
     max-height: 2rem;
   }
 `;
 
 export const Input = styled.input`
   border: none;
+
+  @media ${MediaQueries.phone} {
+    max-width: 6.5rem;
+  }
 `;
 
 export const Center = styled.div`

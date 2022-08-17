@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import { MediaQueries } from "../../environment/theme/sizes";
 import { Colors } from "../../environment/theme/Colors";
 
 export const Container = styled.div`
@@ -10,6 +11,10 @@ export const Left = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
+
+  @media ${MediaQueries.phone} {
+    max-width: 6rem;
+  }
 `;
 
 export const Logo = styled.h1``;
@@ -25,6 +30,10 @@ export const SocialIcon = styled.div`
   border-radius: 50%;
   color: ${Colors.white};
   margin-right: 20px;
+
+  @media ${MediaQueries.phone} {
+    margin-right: 0;
+  }
 `;
 
 export const Center = styled.div`
@@ -43,11 +52,19 @@ export const List = styled.ul`
   display: flex;
   flex: 1;
   flex-wrap: wrap;
+
+  @media ${MediaQueries.phone}, ${MediaQueries.touch} {
+    flex-direction: column;
+  }
 `;
 
 export const ListItem = styled.div`
   width: 50%;
   margin-bottom: 10px;
+
+  @media ${MediaQueries.phone} {
+    max-width: 1rem;
+  }
 `;
 
 export const Right = styled.div`
@@ -59,6 +76,11 @@ export const ContactItem = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+
+  @media ${MediaQueries} {
+    font-size: 15px;
+    flex-wrap: wrap;
+  }
 `;
 
 export const Payment = styled.img`

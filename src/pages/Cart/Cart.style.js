@@ -7,6 +7,10 @@ export const Container = styled.div``;
 
 export const Wrapper = styled.div`
   padding: 20px;
+
+  @media ${MediaQueries.phone} {
+    padding: 0;
+  }
 `;
 
 export const Title = styled.h1`
@@ -19,6 +23,10 @@ export const Top = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 20px;
+
+  @media ${MediaQueries.phone} {
+    padding: 5px;
+  }
 `;
 
 export const TopButton = styled.button`
@@ -37,6 +45,13 @@ export const TopText = styled.span`
   text-decoration: underline;
   cursor: pointer;
   margin: 0px 10px;
+
+  @media ${MediaQueries.phone} {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 5px;
+  }
 `;
 
 export const Bottom = styled.div`
@@ -64,6 +79,10 @@ export const ProductDetail = styled.div`
 
 export const Image = styled.img`
   width: 200px;
+
+  @media ${MediaQueries.phone} {
+    max-width: 130px;
+  }
 `;
 
 export const Details = styled.div`
@@ -71,6 +90,10 @@ export const Details = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+
+  @media ${MediaQueries.phone} {
+    padding: 0;
+  }
 `;
 
 export const ProductName = styled.span``;
@@ -106,6 +129,7 @@ export const ProductAmount = styled.div`
 
   @media ${MediaQueries.phone} {
     margin: 5px 15px;
+    font-size: 14px;
   }
 `;
 
@@ -122,6 +146,10 @@ export const Hr = styled.hr`
   background-color: #eee;
   border: none;
   height: 1px;
+
+  @media ${MediaQueries.phone} {
+    max-width: 14rem;
+  }
 `;
 
 export const Summary = styled.div`
@@ -138,8 +166,18 @@ export const SummaryItem = styled.div`
   justify-content: space-between;
   font-weight: ${(props) => props.type === "total" && "500"};
   font-size: ${(props) => props.type === "total" && "24px"};
+
+  @media ${MediaQueries.phone} {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
 `;
 
-export const SummaryItemText = styled.span``;
+export const SummaryItemText = styled.span`
+  @media ${MediaQueries.phone} {
+    font-size: 15px;
+    margin-right: 1rem;
+  }
+`;
 
 export const SummaryItemPrice = styled.span``;
