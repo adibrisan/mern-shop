@@ -1,3 +1,10 @@
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+
 import Cart from "./pages/Cart/Cart";
 import Home from "./pages/Home/Home";
 import ProductList from "./pages/ProductList/ProductList";
@@ -8,7 +15,23 @@ import Login from "./pages/auth/Login/Login";
 import "./App.css";
 
 function App() {
-  return <Cart />;
+  const user = true;
+
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products/:category" element={<ProductList />} />
+        <Route path="/product/:id" element={<Product />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route
+          path="/login"
+          element={user ? <Navigate replace to="/" /> : <Login />}
+        />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
