@@ -12,6 +12,8 @@ import Product from "./pages/Product/Product";
 import Register from "./pages/auth/Register/Register";
 import Login from "./pages/auth/Login/Login";
 
+import ScrollToTop from "./utils/ScrollToTop";
+
 import "./App.css";
 
 function App() {
@@ -19,17 +21,19 @@ function App() {
 
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products/:category" element={<ProductList />} />
-        <Route path="/product/:id" element={<Product />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route
-          path="/login"
-          element={user ? <Navigate replace to="/" /> : <Login />}
-        />
-        <Route path="/register" element={<Register />} />
-      </Routes>
+      <ScrollToTop>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products/:category" element={<ProductList />} />
+          <Route path="/product/:id" element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route
+            path="/login"
+            element={user ? <Navigate replace to="/" /> : <Login />}
+          />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </ScrollToTop>
     </Router>
   );
 }
