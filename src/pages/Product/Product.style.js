@@ -18,12 +18,12 @@ export const ImgContainer = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 100%;
-  height: 90vh;
+  width: 40vw;
+  height: auto;
   object-fit: cover;
 
   @media ${MediaQueries.phone} {
-    height: 40vh;
+    width: 100vw;
   }
 `;
 
@@ -77,6 +77,9 @@ export const FilterColor = styled.div`
   background-color: ${(props) => props.color};
   margin: 0px 5px;
   cursor: pointer;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
 `;
 
 export const FilterSize = styled.select`

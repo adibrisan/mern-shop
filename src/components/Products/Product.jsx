@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import {
   AiOutlineShoppingCart,
@@ -8,6 +9,8 @@ import {
 import { Container, Circle, Image, Info, Icon } from "./Product.style";
 
 const Product = ({ item }) => {
+  const navigate = useNavigate();
+
   return (
     <Container>
       <Circle />
@@ -17,7 +20,11 @@ const Product = ({ item }) => {
           <AiOutlineShoppingCart />
         </Icon>
         <Icon>
-          <AiOutlineSearch />
+          <AiOutlineSearch
+            onClick={() =>
+              navigate(`../product/${item._id}`, { replace: true })
+            }
+          />
         </Icon>
         <Icon>
           <AiOutlineHeart />

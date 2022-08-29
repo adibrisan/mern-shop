@@ -3,7 +3,9 @@ import styled from "styled-components";
 import { MediaQueries } from "../../environment/theme/sizes";
 
 export const Container = styled.div``;
-export const Title = styled.h1``;
+export const Title = styled.h1`
+  margin-left: 1rem;
+`;
 export const FilterContainer = styled.div`
   display: flex;
   justify-content: space-between;

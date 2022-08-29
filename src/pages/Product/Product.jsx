@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 import Announcement from "../../components/Announcement/Announcement";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import Newsletter from "../../components/Newsletter/Newsletter";
+
+import { userRequest } from "../../api";
 
 import { IoMdAddCircle, IoMdRemoveCircle } from "react-icons/io";
 import {
@@ -27,55 +30,84 @@ import {
 } from "./Product.style";
 
 const Product = () => {
+  const location = useLocation();
+  const productId = location.pathname.split("/")[2];
+
+  const [product, setProduct] = useState({});
+  const [quantity, setQuantity] = useState(1);
+  const [color, setColor] = useState("");
+  const [size, setSize] = useState("");
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await userRequest.get("/products/find/" + productId);
+        setProduct(res.data);
+      } catch (err) {}
+    };
+    getProduct();
+  }, [productId]);
+
+  const handleQuantity = (action) => {
+    if (action === "dec" && quantity > 1) {
+      setQuantity((prevQuantity) => prevQuantity - 1);
+    } else if (action === "inc") {
+      setQuantity((prevQuantity) => prevQuantity + 1);
+    }
+  };
+
+  const handleAddProduct = () => {
+    //update cart via redux
+  };
+
   return (
-    <div>
+    <>
       <Announcement />
       <Navbar />
       <Wrapper>
         <ImgContainer>
-          <Image src="http://cdn.shopify.com/s/files/1/0293/9277/products/01-18-22DenimEditorial_CE_15-42-23_Look6_6054_KL_DM_1200x1200.jpg?v=1644437036" />
+          <Image src={product.img} alt="product_item_image" />
         </ImgContainer>
         <InfoContainer>
-          <Title>Denim Jumpsuit</Title>
-          <Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at
-            iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget
-            tristique tortor pretium ut. Curabitur elit justo, consequat id
-            condimentum ac, volutpat ornare.
-          </Description>
-          <Price>$ 20</Price>
+          <Title>{product.title}</Title>
+          <Description>{product.description}</Description>
+          <Price>$ {product.price}</Price>
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
-              <FilterColor color="black" />
-              <FilterColor color="darkblue" />
-              <FilterColor color="gray" />
+              {product.color?.map((itemColor, index) => (
+                <FilterColor
+                  key={index}
+                  color={itemColor}
+                  onClick={() => setColor(itemColor)}
+                />
+              ))}
             </Filter>
             <Filter>
               <FilterTitle>Size</FilterTitle>
-              <FilterSize>
-                <FilterSizeOption>XS</FilterSizeOption>
-                <FilterSizeOption>S</FilterSizeOption>
-                <FilterSizeOption>M</FilterSizeOption>
-                <FilterSizeOption>L</FilterSizeOption>
-                <FilterSizeOption>XL</FilterSizeOption>
+              <FilterSize onChange={(e) => setSize(e.target.value)}>
+                {product.size?.map((itemSize, index) => (
+                  <FilterSizeOption key={index}>{itemSize}</FilterSizeOption>
+                ))}
               </FilterSize>
             </Filter>
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-              <IoMdRemoveCircle />
-              <Amount>1</Amount>
-              <IoMdAddCircle />
+              <IoMdRemoveCircle
+                size={22}
+                onClick={() => handleQuantity("dec")}
+              />
+              <Amount>{quantity}</Amount>
+              <IoMdAddCircle size={22} onClick={() => handleQuantity("inc")} />
             </AmountContainer>
-            <Button>ADD TO CART</Button>
+            <Button onClick={handleAddProduct}>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>
       <Newsletter />
       <Footer />
-    </div>
+    </>
   );
 };
 
