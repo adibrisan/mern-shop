@@ -61,6 +61,10 @@ export const Bottom = styled.div`
 
 export const Info = styled.div`
   flex: 3;
+
+  hr:last-child {
+    display: none;
+  }
 `;
 
 export const Product = styled.div`

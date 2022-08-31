@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 
 import Announcement from "../../components/Announcement/Announcement";
@@ -7,6 +8,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Newsletter from "../../components/Newsletter/Newsletter";
 
 import { userRequest } from "../../api";
+import { addProduct } from "../../store/cartSlice";
 
 import { IoMdAddCircle, IoMdRemoveCircle } from "react-icons/io";
 import {
@@ -32,6 +34,7 @@ import {
 const Product = () => {
   const location = useLocation();
   const productId = location.pathname.split("/")[2];
+  const dispatch = useDispatch();
 
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
@@ -57,7 +60,7 @@ const Product = () => {
   };
 
   const handleAddProduct = () => {
-    //update cart via redux
+    dispatch(addProduct({ ...product, quantity, color, size })); //or product: product,quantity:quantity
   };
 
   return (

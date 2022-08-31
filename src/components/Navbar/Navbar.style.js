@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import { Colors } from "../../environment/theme/Colors";
 import { MediaQueries } from "../../environment/theme/sizes";
 
 export const Container = styled.div`
@@ -80,4 +81,23 @@ export const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
+
+  @media ${MediaQueries.phone} {
+    display: flex;
+  }
+`;
+
+export const CartNumber = styled.span`
+  font-size: 10px;
+  background: ${Colors.teal};
+  color: #fff;
+  padding: 0 5px;
+  vertical-align: top;
+  border-radius: 45%;
+
+  @media ${MediaQueries.phone} {
+    display: flex;
+    align-items: center;
+    height: 15px;
+  }
 `;
