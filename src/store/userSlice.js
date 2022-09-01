@@ -13,11 +13,16 @@ const userSlice = createSlice({
     },
     loginSuccess: (state, action) => {
       state.isFetching = false;
+      state.error = false;
+      state.currentUser = action.payload;
     },
-    loginFailure: (state) => {},
+    loginFailure: (state) => {
+      state.isFetching = false;
+      state.error = true;
+    },
   },
 });
 
-export const { addProduct } = userSlice.actions;
+export const { loginStart, loginSuccess, loginFailure } = userSlice.actions;
 
 export default userSlice;

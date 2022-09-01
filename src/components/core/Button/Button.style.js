@@ -9,4 +9,9 @@ export const Button = styled.button`
   background-color: ${Colors.teal};
   color: ${Colors.white};
   cursor: pointer;
+
+  &:disabled {
+    color: ${Colors.amazon};
+    cursor: not-allowed;
+  }
 `;

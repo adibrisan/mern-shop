@@ -1,4 +1,6 @@
 export const Colors = {
+  amaranth: "#E52B50",
+  amazon: "#3B7A57",
   black: "#000000",
   catskillWhite: "#E9F5F5",
   chambray: "#3B5999",

@@ -4,6 +4,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import Cart from "./pages/Cart/Cart";
 import Home from "./pages/Home/Home";
@@ -18,7 +19,7 @@ import ScrollToTop from "./utils/ScrollToTop";
 import "./App.css";
 
 function App() {
-  const user = true;
+  const user = useSelector((state) => state.user.currentUser);
 
   return (
     <Router>

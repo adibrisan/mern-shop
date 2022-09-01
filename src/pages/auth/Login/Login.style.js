@@ -46,3 +46,7 @@ export const Link = styled.a`
     width: 100%;
   }
 `;
+
+export const Error = styled.span`
+  color: ${Colors.amaranth};
+`;
