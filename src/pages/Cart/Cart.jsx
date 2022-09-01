@@ -1,10 +1,15 @@
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { IoMdAddCircle, IoMdRemoveCircle } from "react-icons/io";
+import StripeCheckout from "react-stripe-checkout";
 
 import Announcement from "../../components/Announcement/Announcement";
 import Button from "../../components/core/Button/Button";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
+
+import { userRequest } from "../../api";
 
 import {
   Container,
@@ -36,8 +41,34 @@ import {
   SummaryItemPrice,
 } from "./Cart.style";
 
+const KEY = process.env.REACT_APP_STRIPE;
+
 const Cart = () => {
+  const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
+
+  const [stripeToken, setStripeToken] = useState(null);
+
+  useEffect(() => {
+    const makeRequest = async () => {
+      try {
+        const res = await userRequest.post("/checkout/payment", {
+          tokenId: stripeToken.id,
+          amount: cart.total * 100,
+        });
+        navigate("/success", {
+          state: { stripeData: res.data, products: cart },
+        });
+      } catch (err) {}
+    };
+    if (stripeToken && cart.total >= 1) {
+      makeRequest();
+    }
+  }, [stripeToken, cart, navigate]);
+
+  const onToken = (token) => {
+    setStripeToken(token);
+  };
 
   return (
     <Container>
@@ -106,7 +137,18 @@ const Cart = () => {
               <SummaryItemText>Total</SummaryItemText>
               <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
-            <Button>CHECKOUT NOW</Button>
+            <StripeCheckout
+              name="Lama Shop"
+              image="https://scontent.fomr1-1.fna.fbcdn.net/v/t1.6435-9/42488909_1896218520499696_2917431603246399488_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=cqQ3D8l8zqcAX-S4YRE&_nc_ht=scontent.fomr1-1.fna&oh=00_AT8-3CEFzLGIoXTeFa-wosIV6YTYVWtUiQGwIM1AHxLmGA&oe=6335E169"
+              billingAddress
+              shippingAddress
+              description={`Your total is $${cart.total}`}
+              amount={cart.total * 100}
+              token={onToken}
+              stripeKey={KEY}
+            >
+              <Button>CHECKOUT NOW</Button>
+            </StripeCheckout>
           </Summary>
         </Bottom>
       </Wrapper>

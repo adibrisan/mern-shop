@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import Product from "./Product";
 
-import { popularProducts } from "../../data/data";
-
 import axiosInstance from "../../api";
 
 import { Container } from "./Products.style";

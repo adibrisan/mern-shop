@@ -11,6 +11,7 @@ import ProductList from "./pages/ProductList/ProductList";
 import Product from "./pages/Product/Product";
 import Register from "./pages/auth/Register/Register";
 import Login from "./pages/auth/Login/Login";
+import Success from "./pages/Success/Success";
 
 import ScrollToTop from "./utils/ScrollToTop";
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="/products/:category" element={<ProductList />} />
           <Route path="/product/:id" element={<Product />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/success" element={<Success />} />
           <Route
             path="/login"
             element={user ? <Navigate replace to="/" /> : <Login />}
